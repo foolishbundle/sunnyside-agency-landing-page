@@ -37,5 +37,9 @@
     padding-block: 0.75em;
     padding-inline: 1.125em;
     color: black;
+
+    &:hover {
+      color: abstracts.$color-neutral-00;
+    }
   }
 }

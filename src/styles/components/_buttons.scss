@@ -18,7 +18,8 @@
   background-color: abstracts.$color-neutral-00;
   color: abstracts.$color-neutral-04;
 
-  &:active {
-    background-color: abstracts.$color-primary-01;
+  &:hover {
+    background-color: hsl(0, 0%, 100%, 0.3);
+    color: abstracts.$color-neutral-00;
   }
 }
