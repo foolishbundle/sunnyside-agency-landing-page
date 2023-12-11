@@ -1,0 +1,130 @@
+@use '../abstracts';
+@use '../base';
+
+.card {
+  &--split {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: min(100%, 1920px);
+    margin-inline: auto;
+  }
+
+  &--split:nth-child(1)>&__description>.button--custom {
+    background-image: linear-gradient(abstracts.$color-primary-01, abstracts.$color-primary-01);
+    background-size: 100% 4px;
+    background-repeat: no-repeat;
+    background-position: bottom;
+  }
+
+  &--split:nth-child(2)>&__description>.button--custom {
+    background-image: linear-gradient(abstracts.$color-primary-00, abstracts.$color-primary-00);
+    background-size: 100% 4px;
+    background-repeat: no-repeat;
+    background-position: bottom;
+  }
+
+  &--split>&__picture {
+    width: 100%;
+
+    img {
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  &--wrap {
+    position: relative;
+  }
+
+  &--wrap>&__picture {
+    width: 100%;
+
+    img {
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  &--wrap>&__description {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+  }
+
+  &__description {
+    width: min(100% - 3rem, 400px);
+    margin-block: 2.5rem;
+    margin-inline: auto;
+  }
+
+  &__title {
+    @include base.font-serif(900);
+    @include base.font-size('3xl');
+
+    color: abstracts.$color-neutral-04;
+  }
+
+  &__paragraph {
+    margin-block: 1.5rem;
+    color: abstracts.$color-neutral-03;
+  }
+}
+
+@media (min-width: 768px) {
+  .card {
+    &--split {
+      flex-direction: row-reverse;
+
+      &:nth-child(2) {
+        flex-direction: row;
+      }
+    }
+
+    &--split>&__picture {
+      width: 50%;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &__wrapper {
+      display: flex;
+      width: min(100%, 1920px);
+      margin-inline: auto;
+    }
+
+    &--wrap {
+      width: 100%;
+    }
+
+    &--wrap>&__picture {
+      img {
+        width: 100%;
+        min-height: 600px;
+      }
+    }
+
+    &--split>&__description {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: min(50% - 3rem, 400px);
+      text-align: left;
+
+      .button--custom {
+        width: fit-content;
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .card {
+    @include base.font-size('lg');
+  }
+}

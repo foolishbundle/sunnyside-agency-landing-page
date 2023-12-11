@@ -1,0 +1,71 @@
+@use '../abstracts';
+@use '../base';
+
+.testimonial {
+  width: min(100% - 3rem, 1920px);
+  margin-inline: auto;
+  text-align: center;
+  color: abstracts.$color-neutral-04;
+
+  &__title {
+    @include base.font-serif(900);
+    @include base.font-size('lg');
+
+    margin-block: 4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+  }
+
+  &__list {
+    @include abstracts.list-reset();
+
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-block: 3rem;
+  }
+
+  &__avatar {
+    margin-block: 1.5rem;
+    margin-inline: auto;
+    border-radius: 999px;
+  }
+
+  &__paragraph {
+    @include base.font-size('lg');
+
+    margin-block: 1.5rem;
+    color: abstracts.$color-neutral-03;
+  }
+
+  &__name {
+    @include base.font-serif(900);
+    @include base.font-size('lg');
+
+    margin-block-start: 1.5rem;
+  }
+
+  &__position {
+    color: abstracts.$color-neutral-03;
+  }
+}
+
+@media (min-width: 768px) {
+  .testimonial {
+    &__list {
+      flex-direction: row;
+      width: min(100%, 1280px);
+      margin-inline: auto;
+    }
+  }
+}
+
+@media (min-width: 1280px) {
+  .testimonial {
+    margin-block: 12rem;
+
+    &__title {
+      @include base.font-size('xl');
+    }
+  }
+}

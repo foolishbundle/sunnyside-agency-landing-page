@@ -1,0 +1,70 @@
+@use 'sass:map';
+@use '../abstracts';
+
+@font-face {
+  font-family: 'Barlow';
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/sans/Barlow-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Fraunces';
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/serif/Fraunces_72pt-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Fraunces';
+  font-weight: 900;
+  font-display: swap;
+  src: url('/fonts/serif/Fraunces_72pt-Black.ttf') format('truetype');
+}
+
+$font-sizes: (
+  'xs': 0.75em,
+  'sm': 0.875em,
+  'md': 1em,
+  'lg': 1.125em,
+  'xl': 1.25em,
+  '2xl': 1.5em,
+  '3xl': 1.875em,
+  '4xl': 2.25em,
+  '5xl': 3em,
+  '6xl': 3.75em,
+  '7xl': 4.5em,
+  '8xl': 6em,
+  '9xl': 8em,
+);
+
+$line-heights: (
+  'xs': 1rem,
+  'sm': 1.25rem,
+  'md': 1.5rem,
+  'lg': 1.75rem,
+  'xl': 1.75rem,
+  '2xl': 2rem,
+  '3xl': 2.25rem,
+  '4xl': 2.5rem,
+  '5xl': 1,
+  '6xl': 1,
+  '7xl': 1,
+  '8xl': 1,
+  '9xl': 1,
+);
+
+@mixin font-sans() {
+  font-family: 'Barlow', abstracts.$font-sans-fallback;
+  font-weight: 600;
+}
+
+@mixin font-serif($weight: 700) {
+  font-family: 'Fraunces', abstracts.$font-serif-fallback;
+  font-weight: $weight;
+}
+
+@mixin font-size($size) {
+  font-size: map.get($font-sizes, $size);
+  line-height: map.get($line-heights, $size);
+}

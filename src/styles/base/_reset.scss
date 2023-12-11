@@ -1,0 +1,42 @@
+@use './typography';
+@use '../abstracts';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  font: inherit;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @include typography.font-sans();
+  @include typography.font-size('md');
+
+  text-rendering: optimizeSpeed;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  overflow-wrap: break-word;
+}
+
+picture,
+img,
+svg,
+canvas {
+  display: block;
+  max-width: 100%;
+}
